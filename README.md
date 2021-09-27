@@ -6,7 +6,7 @@ I use this app to demonstrate replication between two clusters. This application
 - Establishes connection to hbase via phoenix
 - Drops or creates a table
 - If keeping the table, queries the maximum value from previous runs and stores the return value as the new startkey (maxkey + 1)
-- Enters a loop that will loop for the number of seconds specified as argument 1
+- Enters a loop that sleeps every second and will loop for the number of seconds specified as argument 1
 - Writes a record with row format of hostname:::currentloopnumber, current loop number
 - Queries for the last record written and prints the results to the command line
 
@@ -14,8 +14,8 @@ The idea is that you can start this on Cluster A and have it run for a good leng
 
 The application takes two arguments:
 
-- drop or keep : drops the table or keeps the table
-- seconds : number of seconds to run
+- Argument 0: drop or keep : drops the table or keeps the table
+- Argument 1: seconds : number of seconds to run
 
 Sample:
 
